@@ -12,6 +12,7 @@ const getAllItem = async () => {
     try {
         return await axios({
             url: 'http://localhost:3000/api/items',
+            method: 'GET'
         }).then(response => {
             return response.data.items;
         }).catch(error => {
@@ -29,6 +30,7 @@ const getDetailItem = async (id) => {
     try {
         return await axios({
             url: `http://localhost:3000/api/items/${ id }`,
+            method: 'GET'
         }).then(response => {
             return response.data.item;
         }).catch(error => {

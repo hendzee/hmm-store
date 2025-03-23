@@ -7,7 +7,6 @@ import Items from '../components/Items';
 import NavigationBar from '../components/NavigatonBar';
 import Loading from '../components/Loading';
 import { getDetailItem } from '../actions/item';
-import parse from "html-react-parser";
 import formatCurrency from '../utility/fotmatCurrency';
 import logo from '../assets/logo.png';
 import { encode } from '../utility/convertUri';
@@ -113,10 +112,12 @@ const setInfo = (detailItem) => (
 const setMoreInfo = (detailItem) => {
     if (!detailItem.additionalInfo) return;
 
+    const infoList = detailItem.additionalInfo.map(e => (<li>{ e }</li>))
+
     return(
-        <>
-            { parse(detailItem.additionalInfo) }
-        </>
+        <ul>
+            { infoList }
+        </ul>
     )
 }
 
